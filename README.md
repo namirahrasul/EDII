@@ -52,13 +52,6 @@ Inpainting experiments are launched via:
     ./inpaint.sh
 
 All outputs (images, logs, intermediate results) are written to:
-    experiments/
-
-
-
-## Reproducibility
-
-- Random seeds are fixed in the experiment scripts.
-- Hyperparameters and checkpoint paths are defined in inpaint.sh.
-- GPU memory requirements scale with image resolution (64×64 vs. 256×256).
+    experiments
+    
 
