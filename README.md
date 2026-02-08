@@ -43,7 +43,7 @@ python setup.py
 
 ## Data Preparation
 
-We perform experiments on the following datasets:
+We perform experiments on 256x256 sized variations the following datasets:
 
 - [**ImageNet**](https://www.image-net.org/download.php)
 - [**CelebA-HQ**](https://www.kaggle.com/datasets/badasstechie/celebahq-resized-256x256)
