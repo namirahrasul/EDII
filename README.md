@@ -45,8 +45,8 @@ python setup.py
 
 We perform experiments on the following datasets:
 
-- **ImageNet** (64×64 and 256×256)  
-- **CelebA-HQ** (64×64 and 256×256)
+- [**ImageNet**](https://www.image-net.org/download.php)
+- [**CelebA-HQ**](https://www.kaggle.com/datasets/badasstechie/celebahq-resized-256x256)
 
 ### Masks
 
