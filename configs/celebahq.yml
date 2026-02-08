@@ -1,0 +1,88 @@
+
+data:
+    dataset: "CELEBA"
+    category: null
+    #category not null for lsun
+    image_size: 256
+    channels: 3
+    logit_transform: false
+    # logit_transform not in p2w 
+    uniform_dequantization: false
+    # uniform_dequantization not in p2w 
+    gaussian_dequantization: false
+    #gaussian_dequantization not in p2w
+    random_flip: true
+    #random_flip matches p2w
+    rescaled: true
+    #rescaled matches p2w where this is hardcoded to always convert [0,255] to [-1,1]
+    num_workers: 8
+    #num_workers matches our mobile lab setup for p2w our checkpoint
+    num_classes: null
+    # was 1 originally but uncond image generation works with null.
+
+model:
+#only problem is matching num_heads to training checkpoint
+#no rescale_learned_sigma in dpmsolver unlike p2w. not needed for sampling but needed in training
+    model_type: "p2-weighing"
+    is_upsampling: false
+    image_size_coarse: 64
+    image_size_fine: 256
+    in_channels: 3
+    model_channels: 128
+    out_channels: 6
+    num_res_blocks: 1
+    attention_resolutions: [16]
+    attention_resolutions_coarse: [4]
+    dropout: 0.0
+    channel_mult_coarse: [1, 2, 3, 4]
+    channel_mult_fine: [1, 1, 2, 2, 4, 4]
+    conv_resample: true
+    dims: 2
+    num_classes: null
+    use_checkpoint: false
+    use_fp16: true
+    num_heads: 8
+    num_head_channels: 64
+    num_heads_upsample: -1
+    use_scale_shift_norm: true
+    resblock_updown: true
+    use_new_attention_order: false
+    var_type: fixedlarge
+    p2_gamma: 1
+    p2_k: 1
+    ema: true
+    ema_rate: 0.9999
+    ckpt_dir_coarse: "./ddpm_ckpt/imagenet/64_ema_0.9999_1000000.pt"
+    ckpt_dir_fine: "./ddpm_ckpt/imagenet/256_ema_0.9999_1000000.pt"
+    
+diffusion:
+#all matches p2w
+    beta_schedule: linear
+    beta_start: 0.0001
+    beta_end: 0.02
+    num_diffusion_timesteps: 1000
+
+sampling:
+    total_N: 10
+    batch_size: 1
+    last_only: True
+    fid_stats_dir: "./fid_stats/VIRTUAL_lsun_bedroom256.npz"
+    fid_total_samples: 10
+    total_samples: 10 #for sample_n_images()
+    fid_batch_size: 1
+    cond_class: false
+    classifier_scale: 0.0
+    base_samples: "./demo_split/imagenet/val"
+    mask_path: "./demo_split/mask/thick"
+    inpa_inj_sched_prev: true
+    inpa_inj_sched_prev_cumnoise: false
+    use_inverse_masks: false
+    thresholding: false
+    n_sample: 1
+    jump_length_coarse: 10
+    jump_n_sample_coarse: 3
+    jump_interval_coarse: 50 # default 50
+    jump_length_fine: 10
+    jump_n_sample_fine: 3
+    jump_interval_fine: 10
+    ddim_step: 10
