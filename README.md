@@ -1,6 +1,6 @@
 # EDII: Efficient Diffusion-based Image Inpainting
 
-Namirah Rasul, Iftikher Jaman Ifti, Yousuf Fuad al-Kasheb, Dr. Hasanul Kabir, Mohammad Bakhtiar Hasan
+Namirah Rasul, Iftikher Jaman Ifti, Yousuf Fuad al-Kasheb, [Md. Bakhtiar Hasan](https://scholar.google.com/citations?user=bkkedVAAAAAJ), [Md. Hasanul Kabir](https://scholar.google.com/citations?user=LIl1Y-0AAAAJ)
 
 This repository contains the code and pretrained models for **Efficient Diffusion-based Image Inpainting (EDII)**, our method that accelerates diffusion-based image inpainting while maintaining high-quality reconstruction. EDII builds upon the **Minutes-to-Seconds (M2S)** framework by integrating **single-step DPM-Solver++ sampling** and **encoder feature reuse** to achieve roughly a 2× speedup over M2S without retraining.
 
