@@ -1,0 +1,84 @@
+mdii-cfs-celebahq 260-90 jump thick mod 3C
+Key Configuration
+
+Dataset: CelebA-HQ
+
+Task: Image inpainting with thick masks
+
+Mask type: Thick masks (./demo_split/mask/thick)
+
+Input image directory: ./demo_split/celebahq/val
+
+Model: Two-stage P2-weighted diffusion model
+
+Coarse resolution: 64 × 64
+
+Fine resolution: 256 × 256
+
+Image channels: 3 (RGB)
+
+Output channels: 6
+
+EMA: Enabled (ema: true)
+
+EMA decay rate: 0.9999
+
+P2 weighting parameters: p2_gamma = 1, p2_k = 1
+
+Coarse checkpoint: ./ddpm_ckpt/celeba/64_ema_0.9999_1000000.pt
+
+Fine checkpoint: ./ddpm_ckpt/celeba/256_ema_0.9999_1000000.pt
+
+Sampling method: DPM-Solver++
+
+Solver method: Single-step (singlestep)
+
+Solver type: DPM-Solver (dpmsolver)
+
+Solver order: 3 (third-order)
+
+Coarse timesteps: 260
+
+Fine timesteps: 90
+
+Skip strategy: Time-uniform (time_uniform)
+
+Noise parameter: (\eta = 0)
+
+Reuse schedule: Previous-step schedule reuse enabled (inpa_inj_sched_prev: true)
+
+Coarse-stage encoder reuse interval: Every 3 steps
+
+Fine-stage encoder reuse interval: Every step (no skipping)
+
+Cumulative noise in schedule reuse: Disabled (inpa_inj_sched_prev_cumnoise: false)
+
+Inverse masks: Disabled (use_inverse_masks: false)
+
+Thresholding: Disabled (thresholding: false)
+
+Sampling batch size: 1
+
+Total sampling size: 10 images (total_samples: 10)
+
+FID evaluation sample size: 10 (fid_total_samples: 10)
+
+FID evaluation batch size: 1
+
+Coarse jump length: 10 (jump_length_coarse: 10)
+
+Coarse jump sample count: 3 (jump_n_sample_coarse: 3)
+
+Coarse jump interval: 50 (jump_interval_coarse: 50)
+
+Fine jump length: 10 (jump_length_fine: 10)
+
+Fine jump sample count: 3 (jump_n_sample_fine: 3)
+
+Fine jump interval: 10 (jump_interval_fine: 10)
+
+DDIM step interval: 10 (ddim_step: 10)
+
+Random seed: 1234
+
+Output directory: results/celeba/thick
