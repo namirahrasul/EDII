@@ -1,4 +1,3 @@
-mdii-cfs-celebahq 260-90 jump thick mod 3C
 Key Configuration
 
 Dataset: CelebA-HQ
